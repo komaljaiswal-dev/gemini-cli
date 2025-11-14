@@ -1,0 +1,1 @@
+Okay, I've reviewed the files. I see a Python script with some security best practices and a Node.js script with a directory traversal vulnerability. What would you like me to do?
