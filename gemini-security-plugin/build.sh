@@ -31,6 +31,17 @@ SCAN_TYPE=""
 echo -e "${YELLOW}🔍 Detecting scan target...${NC}"
 echo ""
 
+if [ -n "$CODEBASE_DIR" ]; then
+    CODEBASE_LOCATION="/bp/workspace/${CODEBASE_DIR}"
+
+    if [ -d "$CODEBASE_LOCATION" ]; then
+        TARGET_DIR="$CODEBASE_LOCATION"
+        SCAN_TYPE="User Provided CODEBASE_DIR"
+        echo -e "${GREEN}✓ Found user directory: $CODEBASE_LOCATION${NC}"
+    else
+        echo -e "${RED}✗ Provided CODEBASE_DIR does not exist: $CODEBASE_LOCATION${NC}"
+    fi
+fi
 # Priority 1: Check for /bp/workspace/codebase
 if [ -d "/bp/workspace/codebase" ]; then
     TARGET_DIR="/bp/workspace/codebase"
