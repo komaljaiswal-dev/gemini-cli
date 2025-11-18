@@ -49,16 +49,16 @@ fi
 # Print header
 echo ""
 echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BOLD}${CYAN}║                    🔒 GEMINI SECURITY SCANNER                                ║${NC}"
+echo -e "${BOLD}${CYAN}║                       GEMINI SECURITY SCANNER                                ║${NC}"
 echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
 # Show mode
 if [ "$SCAN_MODE" = "custom" ]; then
-    echo -e "${MAGENTA}${BOLD}🎯 Custom Query Mode${NC}"
+    echo -e "${MAGENTA}${BOLD}  Custom Query Mode${NC}"
     echo -e "${CYAN}Query: ${BOLD}\"$USER_QUERY\"${NC}"
 else
-    echo -e "${BLUE}${BOLD}🔒 Standard Security Scan Mode${NC}"
+    echo -e "${BLUE}${BOLD}  Standard Security Scan Mode${NC}"
 fi
 echo ""
 
@@ -119,8 +119,8 @@ else
     echo -e "${YELLOW}⚠  No specific directory found, using: /bp/workspace${NC}"
 fi
 
-echo -e "${BLUE}📂 Scan Type: ${BOLD}$SCAN_TYPE${NC}"
-echo -e "${BLUE}📁 Target Directory: ${BOLD}$TARGET_DIR${NC}"
+echo -e "${BLUE}  Scan Type: ${BOLD}$SCAN_TYPE${NC}"
+echo -e "${BLUE}  Target Directory: ${BOLD}$TARGET_DIR${NC}"
 echo ""
 
 # Validate that directory exists and is readable
@@ -221,7 +221,7 @@ echo -ne "\r   Processed: $PROCESSED/$ACTUAL_FILE_COUNT files\n"
 # Include Git-specific information if it's a Git repo
 if [ -d "$TARGET_DIR/.git" ]; then
   echo ""
-  echo -e "${CYAN}📦 Including Git repository information...${NC}"
+  echo -e "${CYAN}  Including Git repository information...${NC}"
   
   echo "===== GIT CONFIGURATION =====" >> "$SCAN_FILE"
   
@@ -260,7 +260,7 @@ if [ "$SCAN_MODE" = "custom" ]; then
   # ============================================================================
   
   echo ""
-  echo -e "${YELLOW}🤖 Running custom Gemini analysis...${NC}"
+  echo -e "${YELLOW}  Running custom Gemini analysis...${NC}"
   
   # Build custom prompt
   CUSTOM_PROMPT="You are an expert security analyst and code reviewer with deep knowledge of software security, vulnerabilities, and best practices.
@@ -292,7 +292,7 @@ Now, answer the user's question: \"$USER_QUERY\""
   # Display results
   echo ""
   echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${BOLD}${CYAN}║                          📋 ANALYSIS RESULTS                                 ║${NC}"
+  echo -e "${BOLD}${CYAN}║                             ANALYSIS RESULTS                                 ║${NC}"
   echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
   echo ""
   
@@ -328,7 +328,7 @@ Now, answer the user's question: \"$USER_QUERY\""
   echo -e "${GREEN}${BOLD}✓ Analysis saved to:${NC} ${BOLD}$CUSTOM_REPORT${NC}"
   echo ""
   echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${BOLD}${CYAN}║                    ✅ ANALYSIS COMPLETED SUCCESSFULLY                        ║${NC}"
+  echo -e "${BOLD}${CYAN}║                       ANALYSIS COMPLETED SUCCESSFULLY                        ║${NC}"
   echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
   echo ""
   
@@ -411,7 +411,7 @@ $(cat "$SCAN_FILE")
 
   # Display summary banner
   echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${BOLD}${CYAN}║                          📊 SCAN SUMMARY                                     ║${NC}"
+  echo -e "${BOLD}${CYAN}║                             SCAN SUMMARY                                     ║${NC}"
   echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
   echo ""
   echo -e "  ${BOLD}Scan Type:${NC}     $SCAN_TYPE"
@@ -431,7 +431,7 @@ $(cat "$SCAN_FILE")
   else
     # Display detailed findings table
     echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${BOLD}${CYAN}║                        🔍 DETAILED FINDINGS                                  ║${NC}"
+    echo -e "${BOLD}${CYAN}║                           DETAILED FINDINGS                                  ║${NC}"
     echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
     echo ""
     
@@ -504,7 +504,7 @@ $(cat "$SCAN_FILE")
   # Save enhanced markdown report
   MD_REPORT="$REPORT_DIR/$REPORT_NAME"
   {
-    echo "# 🔒 Gemini Security Scan Report"
+    echo "#   Gemini Security Scan Report"
     echo ""
     echo "**Generated:** $(date '+%Y-%m-%d %H:%M:%S')"
     echo "**Scan Type:** $SCAN_TYPE"
@@ -524,7 +524,7 @@ $(cat "$SCAN_FILE")
     
     echo "---"
     echo ""
-    echo "## 📊 Executive Summary"
+    echo "##   Executive Summary"
     echo ""
     echo "| Severity Level | Count |"
     echo "|---------------|-------|"
@@ -563,13 +563,13 @@ $(cat "$SCAN_FILE")
         
         echo "### ${icon} [$severity] $issue"
         echo ""
-        echo "**📄 File:** \`$file\`"
+        echo "** File:** \`$file\`"
         echo ""
-        echo "**📝 Description:**"
+        echo "**  Description:**"
         echo ""
         echo "$description"
         echo ""
-        echo "**💡 Recommendation:**"
+        echo "**  Recommendation:**"
         echo ""
         echo "$recommendation"
         echo ""
@@ -579,7 +579,7 @@ $(cat "$SCAN_FILE")
     else
       echo "---"
       echo ""
-      echo "## ✅ Results"
+      echo "##   Results"
       echo ""
       echo "**No security vulnerabilities detected!**"
       echo ""
@@ -589,7 +589,7 @@ $(cat "$SCAN_FILE")
     
     echo "---"
     echo ""
-    echo "## 📎 Raw JSON Output"
+    echo "##  Raw JSON Output"
     echo ""
     echo '```json'
     jq '.' /tmp/scan_raw.json
@@ -603,7 +603,7 @@ $(cat "$SCAN_FILE")
   echo -e "${GREEN}${BOLD}✓ Detailed report saved to:${NC} ${BOLD}$MD_REPORT${NC}"
   echo ""
   echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${BOLD}${CYAN}║                    ✅ SCAN COMPLETED SUCCESSFULLY                            ║${NC}"
+  echo -e "${BOLD}${CYAN}║                       SCAN COMPLETED SUCCESSFULLY                            ║${NC}"
   echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
   echo ""
 fi
